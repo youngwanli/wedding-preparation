@@ -65,27 +65,27 @@ export const TaskList = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">婚礼准备清单</h1>
+    <div className="container mx-auto px-4 py-6 sm:py-8">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0 text-center sm:text-left">婚礼准备清单</h1>
         <Link 
           href="/history" 
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-center sm:text-left"
         >
           查看更新记录
         </Link>
       </div>
       
-      <div className="mb-4 flex space-x-4">
+      <div className="mb-4 flex flex-wrap gap-2 justify-center sm:justify-start">
         <button 
           onClick={() => handleSort('date')}
-          className={`px-3 py-1 rounded ${sortField === 'date' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`px-3 py-1 rounded text-sm sm:text-base ${sortField === 'date' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
           按日期排序 {sortField === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
         </button>
         <button 
           onClick={() => handleSort('completed')}
-          className={`px-3 py-1 rounded ${sortField === 'completed' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          className={`px-3 py-1 rounded text-sm sm:text-base ${sortField === 'completed' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
           按完成状态排序 {sortField === 'completed' && (sortOrder === 'asc' ? '↑' : '↓')}
         </button>
