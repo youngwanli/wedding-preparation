@@ -15,7 +15,10 @@ export const TaskTable = ({ tasks, onTaskUpdate }: TaskTableProps) => {
             <thead className="bg-gray-100">
               <tr>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  时间
+                  公历日期
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  农历日期
                 </th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   事项
@@ -33,6 +36,9 @@ export const TaskTable = ({ tasks, onTaskUpdate }: TaskTableProps) => {
                 <tr key={task.id} className={task.completed ? "bg-green-50" : ""}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {task.date}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {task.lunarDate}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {task.task}
@@ -62,8 +68,12 @@ export const TaskTable = ({ tasks, onTaskUpdate }: TaskTableProps) => {
                 className={`bg-white border-b border-gray-200 p-4 ${task.completed ? "bg-green-50" : ""}`}
               >
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-500">时间</span>
+                  <span className="text-sm font-medium text-gray-500">公历日期</span>
                   <span className="text-sm text-gray-900">{task.date}</span>
+                </div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-gray-500">农历日期</span>
+                  <span className="text-sm text-gray-900">{task.lunarDate}</span>
                 </div>
                 <div className="mb-2">
                   <span className="text-sm font-medium text-gray-500">事项</span>

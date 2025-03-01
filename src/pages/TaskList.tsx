@@ -4,7 +4,7 @@ import { TaskTable } from '../components/TaskTable';
 import { Task } from '../types/Task';
 import { weddingTasks } from '../config/weddingTasks';
 
-type SortField = 'date' | 'completed';
+type SortField = 'date' | 'lunarDate' | 'completed';
 type SortOrder = 'asc' | 'desc';
 
 export const TaskList = () => {
@@ -56,6 +56,10 @@ export const TaskList = () => {
       return sortOrder === 'asc' 
         ? a.date.localeCompare(b.date) 
         : b.date.localeCompare(a.date);
+    } else if (sortField === 'lunarDate') {
+      return sortOrder === 'asc' 
+        ? a.lunarDate.localeCompare(b.lunarDate) 
+        : b.lunarDate.localeCompare(a.lunarDate);
     } else if (sortField === 'completed') {
       return sortOrder === 'asc' 
         ? (a.completed === b.completed ? 0 : a.completed ? 1 : -1)
@@ -81,7 +85,13 @@ export const TaskList = () => {
           onClick={() => handleSort('date')}
           className={`px-3 py-1 rounded text-sm sm:text-base ${sortField === 'date' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
-          按日期排序 {sortField === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
+          按公历日期排序 {sortField === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
+        </button>
+        <button 
+          onClick={() => handleSort('lunarDate')}
+          className={`px-3 py-1 rounded text-sm sm:text-base ${sortField === 'lunarDate' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          按农历日期排序 {sortField === 'lunarDate' && (sortOrder === 'asc' ? '↑' : '↓')}
         </button>
         <button 
           onClick={() => handleSort('completed')}
