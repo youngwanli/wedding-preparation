@@ -1,14 +1,17 @@
-import './App.css'
+import { Route, Switch } from 'wouter';
+import { TaskList } from './pages/TaskList';
+import { UpdateHistory } from './pages/UpdateHistory';
+import './App.css';
 
 function App() {
-
   return (
     <>
- <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+      <Switch>
+        <Route path="/" component={TaskList} />
+        <Route path="/history" component={UpdateHistory} />
+      </Switch>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
