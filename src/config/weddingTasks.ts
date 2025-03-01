@@ -5,7 +5,7 @@ export const weddingTasks: Task[] = [
     id: '1',
     date: '2025-02-13',
     lunarDate: '正月十六',
-    task: '要好：',
+    task: '要好：表达想要要好的意愿',
     completed: true,
     notes: '我爸妈一起'
   },
